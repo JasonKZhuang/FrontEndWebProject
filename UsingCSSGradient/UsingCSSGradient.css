@@ -1,0 +1,52 @@
+/* 
+    CSS defines two types of gradients:
+    Linear Gradients (goes down/up/left/right/diagonally)
+    Radial Gradients (defined by their center) 
+    Reference:
+    https://cssgradient.io/
+*/
+
+/* 
+    Syntax: linear-gradient(direction, color-stop1, color-stop2, ...); 
+    direction: 
+        top to bottom (default)
+        to right
+        to bottom 
+        to bottom right
+        Using Angles:180deg
+    Using Multiple Color Stops:
+        rgba(2, 0, 36, 1)
+        linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+    Using Transparency:
+        background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+    
+*/
+.dLinearGradient {
+    width: 800px;
+    height: 200px;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 1%, rgba(9, 102, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+
+
+/* 
+    background-image: radial-gradient(shape size at position, start-color, ..., last-color);
+    direction: 
+        top to bottom (default)
+        to right
+        to bottom 
+        to bottom right
+        Using Angles:180deg
+    Using Multiple Color Stops:
+        rgba(2, 0, 36, 1)
+        linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+    Using Transparency:
+        background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+    
+*/
+
+.dRadialGradient {
+    width: 800px;
+    height: 200px;
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,102,121,1) 35%, rgba(0,212,255,1) 100%);
+}

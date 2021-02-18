@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css" media="screen, print">
+        
+        /* 指定在线字体 */
+        @font-face {
+            font-family: myURLFont1;
+            /* Required. Defines the name of the font. */
+            src: url("https://mdn.mozillademos.org/files/2468/VeraSeBd.ttf");
+        }
+
+        /* 
+            用到了用户本地字体"Helvetica Neue Bold"的备份；
+            如果当前用户(浏览器)未安装该字体(两种可能的字体名都已经试过)，
+            就会用下载的字体"MgOpenModernaBold.ttf"来代替： 
+        */
+        @font-face {
+            font-family: myLocalFont1;
+            src: local("Helvetica Neue Bold"),
+                local("HelveticaNeue-Bold"),
+                url(MgOpenModernaBold.ttf);
+            font-weight: bold;
+        }
+
+        .divURLFont1 {
+            font-family: myURLFont1;
+        }
+
+        .divLocalFont1 {
+            font-family: myLocalFont1;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+    <h1>Using Font Face</h1>
+    <div class="divURLFont1">
+        Using font face URL, src address is http://....
+    </div>
+    <div class="divLocalFont1">
+        local font
+    </div>
+</body>
+
+</html>

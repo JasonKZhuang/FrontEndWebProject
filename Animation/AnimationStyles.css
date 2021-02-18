@@ -1,0 +1,74 @@
+@font-face {
+    font-family: myURLFont1;
+    src: url("https://mdn.mozillademos.org/files/2468/VeraSeBd.ttf");
+}
+
+body {
+    font-family: myURLFont1;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+
+.parentContainer {
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -300px 0 0 -400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100pt;
+}
+
+.childContainer {
+    width: 100px;
+    height: 100px;
+    padding: 0 20px;
+    position: relative;
+}
+
+.first-letter {
+    animation: first-letter 5s infinite;
+}
+.second-letter {
+    animation: second-letter 10s infinite;
+}
+
+
+@keyframes first-letter {
+    0% {
+        top: 0px;
+    }
+
+    25% {
+        top: 200px;
+    }
+
+    75% {
+        top: 50px
+    }
+
+    100% {
+        top: 100px;
+    }
+}
+
+
+@keyframes second-letter {
+    0% {
+        top: 200px;
+    }
+
+    25% {
+        top: 10px;
+    }
+
+    75% {
+        top: 50px
+    }
+
+    100% {
+        top: 10px;
+    }
+}
