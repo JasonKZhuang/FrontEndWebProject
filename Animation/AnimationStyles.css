@@ -5,7 +5,7 @@
 
 body {
     font-family: myURLFont1;
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(100, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
 }
 
 .parentContainer {
@@ -28,47 +28,39 @@ body {
     position: relative;
 }
 
-.first-letter {
-    animation: first-letter 5s infinite;
-}
-.second-letter {
-    animation: second-letter 10s infinite;
+.first-letter:active {
+    animation: first-letter 10s infinite;
 }
 
 
 @keyframes first-letter {
     0% {
-        top: 0px;
+        top: 0px; color:burlywood;
     }
-
-    25% {
-        top: 200px;
+    50% {
+        top: -100px; color: red; 
     }
-
     75% {
-        top: 50px
+       top: -100px; color: red; transform: rotate(90deg);
     }
-
     100% {
-        top: 100px;
+       top: -100px; color: red; transform: rotate(-90deg);  transform: translate(200px, 0px);
     }
+   
 }
+
+.second-letter:active {
+    animation: second-letter 3s infinite;
+}
+
 
 
 @keyframes second-letter {
     0% {
-        top: 200px;
+        color:blue;font-family:'verdana'; font-size: small;
     }
-
-    25% {
-        top: 10px;
-    }
-
-    75% {
-        top: 50px
-    }
-
     100% {
-        top: 10px;
+        color: red; font-family: 'Courier New'; font-size: larger;
     }
+   
 }
