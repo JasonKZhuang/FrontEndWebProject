@@ -1,10 +1,38 @@
+/*
+CSS 中的变量的声明
+*/
+:root{
+    --main-color:#ffffff;
+    --main-bg-color:#000000;
+    --div-height: 300px;
+    --div-width:500px;
+}
+
 @font-face {
     font-family: myFont;
     src: url("http://developer.mozilla.org/@api/deki/files/2934/=VeraSeBd.ttf");
 }
 
+.alternativeColor{
+  color: var(--my-var, red); /* Red if --my-var is not defined */
+}
+/*
+在 JavaScript 中获取或者修改 CSS  变量和操作普通 CSS 属性是一样的：
+// 获取一个 Dom 节点上的 CSS 变量
+element.style.getPropertyValue("--my-var");
+
+// 获取任意 Dom 节点上的 CSS 变量
+getComputedStyle(element).getPropertyValue("--my-var");
+
+// 修改一个 Dom 节点上的 CSS 变量
+element.style.setProperty("--my-var", jsVar + 4);
+*/
+
 body {
     font-family: myFont;
+    /* 使用一个局部变量时用 var() 函数包裹以表示一个合法的属性值 */
+    color: var(--main-color);
+    background-color: var(--main-bg-color);
 }
 
 
@@ -12,16 +40,19 @@ body {
     有宽高的情况下，实现水平和垂直居中
     方法一：使用定位 position:absolute; 
     left和top值为50%；
-    然后margin的left和top减去宽高的一半。
+    然后margin的left和top分别减去宽和高的一半。
 */
 .container1 {
-    background-color: rgb(245, 7, 7);
-    width: 200px;
-    height: 200px;
+    background-color: rgb(86, 123, 191);
+    width: var(--div-width);
+    height: var(--div-height);
     position: absolute;
     left: 50%;
     top: 50%;
-    margin: -100px 0 0 -100px;
+    margin-top: calc( (var(--div-height) / 2 ) * -1);
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: calc( (var(--div-width) / 2 ) * -1);
     z-index: 10;
 }
 
