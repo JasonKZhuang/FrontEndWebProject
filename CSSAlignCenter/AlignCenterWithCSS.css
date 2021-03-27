@@ -1,11 +1,13 @@
 /*
 CSS 中的变量的声明
 */
-:root{
-    --main-color:#ffffff;
-    --main-bg-color:#000000;
+:root {
+    --main-color: #ffffff;
+    --main-bg-color: #000000;
+    --second-color: #1b0cf0;
+    --second-bg-color: #ebe6e6;
     --div-height: 300px;
-    --div-width:500px;
+    --div-width: 500px;
 }
 
 @font-face {
@@ -13,9 +15,11 @@ CSS 中的变量的声明
     src: url("http://developer.mozilla.org/@api/deki/files/2934/=VeraSeBd.ttf");
 }
 
-.alternativeColor{
-  color: var(--my-var, red); /* Red if --my-var is not defined */
+.alternativeColor {
+    color: var(--my-var, red);
+    /* Red if --my-var is not defined */
 }
+
 /*
 在 JavaScript 中获取或者修改 CSS  变量和操作普通 CSS 属性是一样的：
 // 获取一个 Dom 节点上的 CSS 变量
@@ -43,16 +47,19 @@ body {
     然后margin的left和top分别减去宽和高的一半。
 */
 .container1 {
-    background-color: rgb(86, 123, 191);
+    color: var(--second-color);
+    background-color: var(--second-bg-color);
     width: var(--div-width);
     height: var(--div-height);
+
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-top: calc( (var(--div-height) / 2 ) * -1);
+    margin-top: calc((var(--div-height) / 2) * -1);
     margin-right: 0;
     margin-bottom: 0;
-    margin-left: calc( (var(--div-width) / 2 ) * -1);
+    margin-left: calc((var(--div-width) / 2) * -1);
+
     z-index: 10;
 }
 
@@ -62,15 +69,18 @@ body {
     四个方向值都是0，然后margin：auto；
 */
 .container2 {
-    background-color: rgb(168, 7, 243);
-    width: 150px;
-    height: 150px;
+    color: var(--second-color);
+    background-color: var(--second-bg-color);
+    width: var(--div-width);
+    height: var(--div-height);
+
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     margin: auto;
+
     z-index: 11;
 }
 
@@ -89,24 +99,10 @@ body {
     z-index: 12;
 }
 
-/* 
-    没有宽高的情况下，元素宽高由内容撑开 
-    方法二：结合css3的transform:translate(-50%,-50%);
-*/
-.container3 {
-    color: #ffffff;
-    background-color: rgb(47, 0, 255);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 12;
-}
-
 
 /* 
     没有宽高的情况下，元素宽高由内容撑开 
-    方法三：使用js实现，实现水平和垂直居中，
+    方法二：使用js实现，实现水平和垂直居中，
     使用定位和margin 
 */
 
@@ -128,26 +124,27 @@ body {
     在父级容器内设定子块元素居中
 */
 .parentContainer {
-    width: 400px;
-    height: 400px;
+    width: var(--div-width);
+    height: var(--div-height);
     border: 1px solid black;
+
+    /* parent container align center in X and Y*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: calc((var(--div-height) / 2) * -1);
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: calc((var(--div-width) / 2) * -1);
+
+    /* setting the children in the parent container align center in X and Y */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 
-    没有宽高的情况下，元素宽高由内容撑开 
-    方法五：display:table    
-*/
-.container5{
-    display:table;
-    margin:0 auto;
-    border:1px solid red;
-}
-
 /* 行内元素居中 */
-.container6{
+.containerLine {
     text-align: center;
     width: 300px;
     height: 300px;

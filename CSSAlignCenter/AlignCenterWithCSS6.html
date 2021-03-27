@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>表格布局</title>
+    <link rel="stylesheet" href="AlignCenterWithCSS.css">
+    <style>
+        #main {
+            color: var(--second-color);
+            background-color: var(--second-bg-color);
+            width: 100%;
+            height: var(--div-height);
+
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: calc((var(--div-height) / 2) * -1);
+            margin-right: 0;
+            margin-bottom: 0;
+            margin-left: 0;
+
+            display: table;
+        }
+
+        #left {
+            width: 30%;
+            display: table-cell;
+            background: rgb(124, 123, 123);
+        }
+
+        #middle {
+            display: table-cell;
+            color: #fff;
+            background: rgb(112, 128, 219);
+            background-image: url("../images/img_lights.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        #right {
+            display: table-cell;
+            width: 30%;
+            background: rgb(143, 143, 98);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="left"></div>
+        <div id="middle">
+            <h1 style="font-size:50px">I am Jason</h1>
+            <h3>And I'm a Software Engineer</h3>
+            <button>Hire me</button>
+        </div>
+        <div id="right"></div>
+    </div>
+</body>
+
+</html>

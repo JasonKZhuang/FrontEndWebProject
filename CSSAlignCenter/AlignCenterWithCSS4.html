@@ -9,55 +9,31 @@
 </head>
 
 <body>
-    <div class="container1">
-        Something here Something here Something here Something here
-    </div>
-    <div class="container2">
-        Something here Something here Something here Something here
-    </div>
-    <div class="container3">
-        Something here Something here Something here Something here
-    </div>
+
     <div id="container4" style="padding: 10px;">
-        container4 container4 container4<br />
-        container4 container4 container4<br />
-        container4 container4 container4<br />
-        container4 container4 container4<br />
-        container4 container4 container4<br />
-        container4 container4 container4<br />
-        container4 container4 container4<br />
-        container4 container4 container4<br />
-        container4 container4 container4<br />
-        container4 container4 container4<br />
-        container4 container4 container4<br />
-        container4 container4 container4<br />
-
-    </div>
-    <div class="parentContainer">
-        <div style="background-color: aqua;">
-            within a container 利用CSS3弹性盒模型（flexBox）
-        </div>
-
-    </div>
-
-    <div class="container5">水平居中,通过给要居中显示的元素，设置display:table，然后设置margin:0 auto来实现</div>
-    <div class="container6">
-        行内元素居中是只针对行内元素的，比如文本（text）、图片（img）、按钮等行内元素，可通过给父元素设置 text-align:center 来实现。另外，如果块状元素属性display
-        被设置为inline时，也是可以使用这种方法。但有个首要条件是子元素必须没有被float影响，否则一切都是无用功。
+        <h3>没有宽高的情况下，元素宽高由内容撑开 </h3>
+        <p>
+            方法二：使用js实现，实现水平和垂直居中，使用定位和margin <br/>
+            position = "absolute";<br/>
+            left = "50%";<br/>
+            top = "50%";<br/>
+            objDiv.style.marginLeft = -(objDiv.clientWidth / 2) + "px";<br/>
+            objDiv.style.marginTop = -(objDiv.clientHeight / 2) + "px";<br/>
+        </p>
     </div>
 </body>
 
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var oDiv = document.getElementById('container4');
+        var objDiv = document.getElementById('container4');
         //alert(oDiv.clientWidth);//有padding的时候是180px，没有padding的时候是160px
-        oDiv.style.backgroundColor = "lightblue";
-        oDiv.style.position = "absolute";
-        oDiv.style.left = "50%";
-        oDiv.style.top = "50%";
-        oDiv.style.marginLeft = -(oDiv.clientWidth / 2) + "px";
-        oDiv.style.marginTop = -(oDiv.clientHeight / 2) + "px";
+        objDiv.style.backgroundColor = "lightblue";
+        objDiv.style.position = "absolute";
+        objDiv.style.left = "50%";
+        objDiv.style.top = "50%";
+        objDiv.style.marginLeft = -(objDiv.clientWidth / 2) + "px";
+        objDiv.style.marginTop = -(objDiv.clientHeight / 2) + "px";
     }, false);
 </script>
 
