@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <style>
+  .container {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   margin-top: calc((30px/2) * -1);
+   margin-right: 0;
+   margin-bottom: 0;
+   margin-left: calc((800px/2) * -1);
+   text-align: center;
+  }
+
+  #back {
+   background-color: rgb(193, 193, 85);
+   height: 30px;
+   width: 800px;
+   border-radius: 10px;
+   margin: 10px 0;
+  }
+
+  #front {
+   background-color: red;
+   height: inherit;
+   width: 0px;
+   border-radius: inherit;
+   transition: width 1s;
+  }
+ </style>
+
+ <script type="text/javascript">
+
+  function add(total, percent) {
+   if (percent > 1 || percent < 0) {
+    return;
+   }
+
+   var elBloodBarBack = document.getElementById("back");
+   var backWidth = elBloodBarBack.offsetWidth;
+
+   var elBloodBarFront = document.getElementById("front");
+   var frontWidth = elBloodBarFront.offsetWidth;
+
+   var newWidth = 0;
+   if (frontWidth < backWidth) {
+    newWidth = frontWidth + (backWidth * percent);
+    if (newWidth > backWidth) {
+     newWidth = backWidth;
+    }
+    elBloodBarFront.style.width = newWidth + 'px';
+   } else {
+    newWidth = backWidth;
+   }
+
+   var inidicator = document.getElementById("health-indicator");
+   var remain = (newWidth / backWidth) * total;
+   inidicator.textContent = "Health " + remain + "/" + total;
+
+  }
+
+
+  function subtract(total, percent) {
+
+   if (percent > 1 || percent < 0) {
+    return;
+   }
+
+   var elBloodBarBack = document.getElementById("back");
+   var backWidth = elBloodBarBack.offsetWidth;
+
+   var elBloodBarFront = document.getElementById("front");
+   var frontWidth = elBloodBarFront.offsetWidth;
+
+   var newWidth = 0;
+   if (frontWidth > 0) {
+    newWidth = frontWidth - (backWidth * percent);
+    if (newWidth < 0) {
+     newWidth = 0;
+    }
+    elBloodBarFront.style.width = newWidth + 'px';
+   }
+
+   var inidicator = document.getElementById("health-indicator");
+   var remain = (newWidth / backWidth) * total;
+   inidicator.textContent = "Health " + remain + "/" + total;
+  }
+
+ </script>
+
+</head>
+
+<body>
+ <div class="container">
+  <button onclick="add(100,0.3);">+</button>
+  <button onclick="subtract(100,0.3);">-</button>
+  <div class="indicator">
+   <span id="health-indicator">Health</span>
+  </div>
+  <div id="back">
+   <div id="front">
+    &nbsp;
+   </div>
+  </div>
+
+ </div>
+ <script>
+
+
+ </script>
+</body>
+
+</html>
