@@ -127,6 +127,7 @@ body {
     width: var(--div-width);
     height: var(--div-height);
     border: 1px solid black;
+    background-color: #ffffff;
 
     /* parent container align center in X and Y*/
     position: absolute;
